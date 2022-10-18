@@ -13,3 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
+cc_library_shared {
+    name: "android.hardware.boot@1.1-impl-qti",
+    stem: "android.hardware.boot@1.0-impl-1.1-qti",
+    defaults: ["android.hardware.boot@1.1-impl-qti_defaults"],
+    static_libs: ["libgptutils.xiaomi_msmnile"],
+}
