@@ -149,6 +149,10 @@ include $(LOCAL_PATH)/properties/default.mk
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Tablet features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware
+    
 # 2-pane layout
 PRODUCT_PACKAGES += \
     androidx.window.extensions
