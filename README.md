@@ -1,4 +1,4 @@
-Copyright (C) 2021 ArrowOS
+Copyright (C) 2023 Pixel Experience
 
 Device configuration for Xiaomi Mi Pad 5 (nabu)
 =========================================
