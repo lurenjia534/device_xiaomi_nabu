@@ -46,12 +46,14 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.checkDozeService(context);
         SharedPreferences stylus_prefs = context.getSharedPreferences(SHARED_STYLUS, Context.MODE_PRIVATE);
         SharedPreferences keyboard_prefs = context.getSharedPreferences(SHARED_KEYBOARD, Context.MODE_PRIVATE);
+        Log.d(TAG, "SHARED_STYLUS"+stylus_prefs.getInt(SHARED_STYLUS, 1));
         try {
             mTouchFeature = ITouchFeature.getService();
-            mTouchFeature.setTouchMode(20, stylus_prefs.getInt(SHARED_STYLUS, 0));
+            mTouchFeature.setTouchMode(20, stylus_prefs.getInt(SHARED_STYLUS, 1));
         } catch (Exception e) {
         }
-        if (keyboard_prefs.getInt(SHARED_KEYBOARD, 1) == 0)
+        Log.d(TAG, "SHARED_KEYBOARD"+keyboard_prefs.getInt(SHARED_KEYBOARD, 1));
+        if (keyboard_prefs.getInt(SHARED_KEYBOARD, 1) == 1)
             FileUtils.writeLine("/sys/devices/platform/soc/soc:xiaomi_keyboard/xiaomi_keyboard_conn_status", "enable_keyboard");
         else
             FileUtils.writeLine("/sys/devices/platform/soc/soc:xiaomi_keyboard/xiaomi_keyboard_conn_status", "disable_keyboard");
